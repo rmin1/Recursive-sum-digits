@@ -1,0 +1,30 @@
+#include <iostream>
+#include <iomanip>
+#include<cmath>
+
+using namespace std;
+
+int main()
+{
+    double n, i = 2, term = 1, old_sum = 0, new_sum = term;
+    cout << "We're going to calculate the value of cos(x) using a recursive formula." << endl;
+    do
+    {
+        cout << "Enter a value of x, where -pi/2 <= x <= pi/2 (-1.5 <= X <= 1.5):" << endl;
+        cin >> n;
+    }   while(n < -1.5 || n > 1.5);
+
+    while (old_sum != new_sum)
+    {
+        old_sum = new_sum;
+        term = term * (-pow(n , 2)) / ((i - 1) * i);
+        new_sum =  new_sum + term;
+        i += 2;
+    }
+    cout << endl << setprecision(4) << fixed << "Our value of cos(x): " << new_sum << endl;
+    cout << "Computer value of cos(x): " << cos(n) << endl;
+
+    return 0;
+}
+
+
