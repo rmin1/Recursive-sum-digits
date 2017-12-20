@@ -1,0 +1,143 @@
+#include <iostream>
+
+using namespace std;
+
+void rotate(int arr[], int d, int n);
+void maxProfit(int prices[],int size);
+void pushZerosToEnd (int arry[], int na);
+void mergeArrays(int arr1[], int arr2[], int n1, int n2, int arr3[]);
+
+int main()
+{
+
+   int arr[] = {1, 2, 3, 4, 5, 6, 7};
+   int n = 7;
+
+   rotate(arr, 2, 7);
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << " " << arr[i];
+    }
+   cout << endl;
+
+///////////////////////
+    int prices[] = {7, 1, 5, 3, 6, 4};
+    int size = 6;
+
+    maxProfit(prices, size);
+
+    for (int i = 0; i < size; i++)
+    {
+        cout << " "<< prices[i];
+    }
+
+    cout << endl;
+    //////////////////////
+
+    int arry[] = {1, 2, 0, 4, 3, 0, 5};
+
+    int na = 8;
+
+    int arr1[] = {1, 3, 4, 5};
+    int n1 = 4;
+
+    int arr2[] = {2, 4, 6, 8};
+    int n2 = 4;
+
+    int arr3[n1 + n2];
+
+    pushZerosToEnd (arry, n);
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << " " << arry[i];
+    }
+
+    cout << endl;
+
+///////////////////
+    mergeArrays(arr1, arr2, n1, n2, arr3);
+
+    for (int i=0; i < n1 + n2; i++)
+    {
+        cout << " " << arr3[i];
+    }
+
+    cout<< endl;
+
+    return 0;
+
+}
+
+void rotate(int arr[], int d, int n)
+{
+  int i;
+
+  for (i = 0; i < d; i++)
+    {
+        int i, a;
+        a = arr[0];
+
+        for (i = 0; i < n-1; i++)
+        {
+            arr[i] = arr[i+1];
+        }
+        arr[i] = a;
+    }
+}
+
+
+void maxProfit(int prices[],int size)
+{
+    // couldn't solve this problem
+
+}
+
+
+void pushZerosToEnd (int arry[], int na)
+{
+    int a = 0;
+
+    for (int i = 0; i < na; i++)
+    {
+        if (arry[i] > 0)
+        {
+            arry[a++] = arry[i];
+        }
+    }
+
+    while (a < na)
+    {
+        arry[a++] = 0;
+    }
+
+}
+
+void mergeArrays(int arr1[], int arr2[], int n1, int n2, int arr3[])
+{
+    int i = 0;
+    int a, b = 0;
+
+    while (i < n1 && a < n2)
+    {
+        if (arr1[i] < arr2[a])
+        {
+            arr3[b++] = arr1[i++];
+        }
+        else
+        {
+            arr3[b++] = arr2[a++];
+        }
+    }
+
+    while (i < n1)
+    {
+        arr3[b++] = arr1[i++];
+    }
+
+    while (a < n2)
+    {
+        arr3[b++] = arr2[a++];
+    }
+}
