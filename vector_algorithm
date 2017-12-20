@@ -1,0 +1,66 @@
+
+#include <iostream>
+#include <vector>
+#include <time.h>
+#include <iomanip>
+#include <algorithm>
+
+using namespace std;
+
+unsigned int seed = (unsigned int)time(0);
+double random (unsigned int& seed);
+const int NUM = 10;
+void fill_vector(vector <int> &v);
+void print_vector(vector<int>::iterator p, vector<int>::iterator q);
+bool less_than_zero(int num);
+void delete_number (vector<int> &v);
+
+int main()
+{
+    vector<int> v;
+    fill_vector(v);
+    cout << "Original Vector" << endl;
+    print_vector(v.begin(), v.end());
+    delete_number(v);
+    cout << "New Vector" << endl;
+    print_vector(v.begin(), v.end());
+}
+double random (unsigned int& seed)
+{
+    const int MODULUS = 15749;
+    const int MULTIPLIER = 69069;
+    const int INCREMENT = 1;
+    seed = ((MULTIPLIER * seed) + INCREMENT) % MODULUS;
+
+    return double(seed) / double (MODULUS);
+}
+void fill_vector(vector <int> &v)
+{
+    for (int i = 0; i < NUM; ++i)
+    {
+        v.push_back(-5 + 21 * random(seed));
+    }
+}
+void print_vector(vector<int>::iterator p, vector<int>::iterator q)
+{
+    for(vector<int>::iterator i = p; i < q; ++i)
+        cout << setw(4) << *i;
+    cout << endl;
+}
+bool less_than_zero(int num)
+{
+    return num < 0;
+}
+void delete_number(vector<int> &v)
+{
+    vector<int>::iterator p = v.begin();
+    while(p != v.end())
+    {
+        p = find_if (p, v.end(), less_than_zero);
+        if(p != v.end())
+        {
+            v.erase(p);
+        }
+    }
+
+}
