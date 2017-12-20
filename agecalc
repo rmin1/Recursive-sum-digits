@@ -1,0 +1,59 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+int main()
+{
+    int date;
+    char yn;
+    int birth;
+    double iYears;
+    double iMonths;
+    double iDays;
+    double bYears;
+    double bMonths;
+    double bDays;
+    int years;
+    int days;
+    int months;
+
+
+    cout << "Welcome to the Age Calculator"<<endl;
+    cout<< "Please enter today's date:"<< endl;
+    cin >> iMonths>>iDays>>iYears;
+
+    if (iMonths >= 12 || iDays >= 31 || iYears >= 10000)
+    {
+        cout<< "Invalid."<<endl;
+
+        return iMonths;
+    }
+
+    else
+
+    cout << "Date entered is " << iMonths<<" "<<iDays<<" "<<iYears << endl;
+    cout << "Would you like to see how old you are? Enter Y or N." << endl;
+    cin >> yn;
+
+    if (yn == 'Y')
+    {
+        cout << "Excellent! Enter your date of birth"<<endl;
+        cin >> bMonths>>bDays>>bYears;
+
+        years = iYears - bYears;
+        cout << "You are " << years << " years old."<<endl;
+
+        months = years * 12;
+        cout<< "You are " << months << " months old."<<endl;
+
+        days = years * 365;
+        cout<< "You are " << days << " days old."<<endl;
+    }
+
+    else
+    {
+        cout << "You are so chicken!"<<endl;
+    }
+
+    return 0;
+}
