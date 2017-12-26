@@ -81,8 +81,8 @@ cout << "Question 2:" << endl;
     root->right = newNode(20);
     root->left->left = newNode(NULL);
     root->left->right = newNode(NULL);
-    root->right->right = newNode(15);
-    root->right->left = newNode(7);
+    root->right->left = newNode(15);
+    root->right->right = newNode(7);
 
     cout << endl;
     print(root);
