@@ -1,0 +1,28 @@
+//Returns largest element in array below
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int findMax(int array[], int b);
+
+int main()
+{
+    int array[] = {1, 2, 5, 4, 3};
+
+    int b = sizeof(array) / sizeof(array[0]);
+
+    cout <<  findMax(array, b) << endl;
+
+    return 0;
+}
+
+int findMax(int array[], int b)
+{
+    if (b == 1)
+    {
+        return array[0];
+    }
+    else
+        return max( array[b-1], findMax(array, b-1));
+}
