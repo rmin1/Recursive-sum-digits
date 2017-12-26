@@ -1,0 +1,43 @@
+//push all zeros to end of array
+#include <iostream>
+
+using namespace std;
+
+void pushZerosToEnd (int arr[], int n);
+
+int main()
+{
+    int arr[] = {1, 2, 0, 4, 3, 0, 5};
+
+    int n = 8;
+
+    pushZerosToEnd (arr, n);
+
+    for (int i = 0; i < n; i++)
+    {
+        cout << " " << arr[i];
+    }
+
+    cout<< endl;
+
+    return 0;
+}
+
+void pushZerosToEnd (int arr[], int n)
+{
+    int a = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] > 0)
+        {
+            arr[a++] = arr[i];
+        }
+    }
+
+    while (a < n)
+    {
+        arr[a++] = 0;
+    }
+
+}
