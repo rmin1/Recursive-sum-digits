@@ -1,0 +1,29 @@
+//For positive numbers, return sum of squares 1 through n
+#include <iostream>
+#include <iomanip>
+
+using namespace std;
+
+int squareSum(int n);
+
+int main()
+{
+	int n;
+
+	cout << "Insert numbers:" << endl;
+
+	cin >> n;
+
+	cout << squareSum(n) << endl;
+}
+
+int squareSum(int n)
+{
+
+	if (n == 0)
+		return (0);
+	else
+	{
+		return (squareSum (n-1) + (n*n));
+	}
+}
