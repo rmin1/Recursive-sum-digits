@@ -1,0 +1,26 @@
+#include <iomanip>
+#include <iostream>
+
+using namespace std;
+
+
+int findSum(int n[], int k);
+
+int main()
+{
+	int n[] = {1, 2, 3, 4, 5};
+
+	int k = sizeof(n) / sizeof(n[0]);
+
+	cout << findSum(n,k) << endl;
+
+	return 0;
+}
+
+int findSum(int n[], int k)
+{
+	if (k <= 0)
+		return 0;
+
+	return ( n[k-1] + findSum( n, k-1) );
+}
