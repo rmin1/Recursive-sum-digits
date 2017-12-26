@@ -73,8 +73,6 @@ Nodes* newNode(int item)
 int main()
 {
 
-cout << "Question 2:" << endl;
-
 
     Nodes *root = newNode(3);
     root->left = newNode(9);
