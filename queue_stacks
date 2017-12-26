@@ -1,0 +1,180 @@
+
+// using enqueue(x), dequeue(), peekFront(), isEmpty()
+
+#include <iostream>
+#include<stack>
+#include<vector>
+#include <queue>
+using namespace std;
+
+class Stack
+{
+
+    public:
+         Stack();
+
+        ~Stack();
+
+        void enqueue(int x);
+
+        void dequeue();
+
+        int peekFront();
+
+        bool isEmpty();
+
+    private:
+
+        stack<int> data;
+
+        stack<int> obj;
+
+};
+
+Stack::Stack(){
+
+}
+
+Stack::~Stack(){
+
+}
+
+void Stack :: enqueue(int x)
+{
+    data.push(x);
+}
+
+void Stack :: dequeue()
+{
+
+    if (data.size() != 0)
+        {
+            for (int i = data.size(); i > 1; i--)
+            {
+
+                obj.push(data.top());
+
+                data.pop();
+            }
+
+        data.pop();
+
+        for (int i = obj.size(); i >= 1; i--)
+            {
+                data.push(obj.top());
+
+                obj.pop();
+            }
+        }
+}
+
+int Stack:: peekFront()
+{
+
+    int size = data.size();
+    for (int i = size; i > 1; i--)
+
+        {
+            obj.push (data.top());
+
+
+            data.pop();
+
+        }
+
+    int top = data.top();
+
+    size = data.size();
+
+    for (int a = size; a >= 1; a--)
+        {
+
+            data.push (obj.top());
+
+            obj.pop();
+
+        }
+
+    return top;
+
+}
+
+bool Stack :: isEmpty()
+
+{
+
+    return data.size() == 0;
+
+}
+
+int main()
+{
+    Stack que;
+
+    cout << "***Queue is being created***" << endl;
+    cout << endl;
+
+    cout << "Numbers will be added: " << endl;
+
+    for ( int i = 1; i < 6; i++)
+        {
+            que.enqueue(i);
+
+            cout << i << endl;
+        }
+        cout << endl;
+
+        cout << que.peekFront() << " is at the beginning." << endl;
+
+        cout << endl;
+
+    if (que.isEmpty())
+        {
+            cout << "Empty." << endl;
+        }
+
+    else
+        {
+            cout << "Not empty." << endl;
+        }
+
+    for (int i = 0; i < 3; i++)
+        {
+        que.dequeue();
+        cout << "Object removed." << endl;
+        }
+
+    cout << que.peekFront() << " is in the beginning." << endl;
+
+cout << endl;
+
+    if (que.isEmpty())
+        {
+            cout << "Empty." << endl;
+        }
+
+    else
+        {
+            cout << "Not empty." << endl;
+        }
+
+    for (int i = 0; i < 2; i++)
+        {
+            que.dequeue();
+
+            cout << "Object is removed." << endl;
+        }
+
+    if (que.isEmpty())
+        {
+            cout << "Queue is empty" << endl;
+        }
+
+    else
+        {
+            cout << "Queue is not empty" << endl;
+        }
+
+cout << endl;
+
+}
