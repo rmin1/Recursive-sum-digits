@@ -1,0 +1,28 @@
+//Return sum of digits recursively
+
+#include<iostream>
+#include<string>
+using namespace std;
+
+int sumDigits(int n);
+
+int main()
+{
+    int n;
+
+    cout << "Enter a positive integer: ";
+    cin >> n;
+
+    cout << "Sum =  " << sumDigits(n) << endl;
+
+}
+
+int sumDigits(int n)
+{
+    if (n > 0)
+    {
+        return n + sumDigits(n - 1);
+    }
+
+     return 0;
+}
